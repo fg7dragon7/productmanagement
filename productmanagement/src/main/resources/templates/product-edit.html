@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit product</title>
+</head>
+
+<body>
+
+<h2>Edit author</h2>
+
+<form th:action="@{/product-edit}" th:object="${editProduct}">
+    <label for="id">Id:</label><br>
+    <input type="text" id="id" readonly name="id" th:field="*{id}"><br>
+    <label for="fname">Product Name:</label><br>
+    <input type="text" id="fname" name="fname" th:field="*{productName}"><br>
+    <label for="lname">Description:</label><br>
+    <input type="text" id="lname" name="lname" th:field="*{description}"><br><br>
+    <input type="submit" value="Edit product">
+</form>
+
+
+</body>
+</html>
