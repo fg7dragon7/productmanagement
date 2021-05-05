@@ -12,7 +12,7 @@ public class CategoryModel {
     private int id;
 
     @OneToMany
-    private List<ProductModel> productModelList;
+    private List<ProductModel> productModel;
     private String category;
 
     public int getId() {
@@ -23,12 +23,12 @@ public class CategoryModel {
         this.id = id;
     }
 
-    public List<ProductModel> getProductModelList() {
-        return productModelList;
+    public List<ProductModel> getProductModel() {
+        return productModel;
     }
 
-    public void setProductModelList(List<ProductModel> productModelList) {
-        this.productModelList = productModelList;
+    public void setProductModel(List<ProductModel> productModel) {
+        this.productModel = productModel;
     }
 
     public String getCategory() {

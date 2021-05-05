@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add C</title>
+</head>
+<body>
+<h2>Add Category</h2>
+
+<form th:action="@{/category-add}" th:object="${newCategory}">
+    <label for="id">Id:</label><br>
+    <input type="text" id="id" name="id" th:field="*{id}"><br>
+    <label for="productModel">Description:</label><br>
+    <input type="text" id="productModel" name="productModel" th:field="*{productModel}"><br><br>
+    <label for="category">Price:</label><br>
+    <input type="text" id="category" name="category" th:field="*{category}"><br><br>
+    <input type="submit" value="Add category">
+</form>
+
+</body>
+</html>
