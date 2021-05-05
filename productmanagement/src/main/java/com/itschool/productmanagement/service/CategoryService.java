@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CategoryService {
@@ -33,5 +34,19 @@ public class CategoryService {
             categoryRepository.save(categoryModel);
         }
     }
+
+    public void deleteCategory(int id){
+        categoryRepository.deleteById(id);
+    }
+
+    public CategoryModel findById(int id){
+        Optional<CategoryModel> optionalCategoryModel = categoryRepository.findById(id);
+        return optionalCategoryModel.get();
+    }
+
+    public void edit(CategoryModel editedCategory) {
+        categoryRepository.save(editedCategory);
+    }
+
 
 }
