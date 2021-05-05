@@ -1,6 +1,9 @@
 package com.itschool.productmanagement.service;
 
 import com.itschool.productmanagement.entities.ProductModel;
+import com.itschool.productmanagement.exception.ProductDescriptionException;
+import com.itschool.productmanagement.exception.ProductNameException;
+import com.itschool.productmanagement.exception.ProductPriceException;
 import com.itschool.productmanagement.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,10 +23,20 @@ public class ProductService {
         return productModelList;
     }
 
-    public void addProduct(ProductModel product){
-        //We can validate firstName /  lastName
+    public void addProduct(ProductModel productModel){
 
-        productRepository.save(product);
+        if (productModel.getProductName().length() <= 3){
+            RuntimeException exception = new ProductNameException("Numele Produsului este prea scurt");
+            throw exception;
+        }else if (productModel.getDescription().length() <= 5){
+            RuntimeException exception = new ProductDescriptionException("Descrierea Produsului este prea scurta");
+            throw exception;
+        }else if (productModel.getPrice() <= 0){
+            RuntimeException exception = new ProductPriceException("Pretul Produsului este prea mic");
+            throw exception;
+        }else{
+            productRepository.save(productModel);
+        }
     }
 
     public void deleteProduct(int id){

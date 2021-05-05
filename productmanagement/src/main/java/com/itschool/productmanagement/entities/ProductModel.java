@@ -14,6 +14,8 @@ public class ProductModel {
 
     private String description;
 
+    private int price;
+
     public int getId() {
         return id;
     }
@@ -36,5 +38,13 @@ public class ProductModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

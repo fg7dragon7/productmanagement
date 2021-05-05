@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Edit product</title>
+    <title>Edit Product</title>
 </head>
 
 <body>
 
-<h2>Edit author</h2>
+<h2>Edit Product</h2>
 
 <form th:action="@{/product-edit}" th:object="${editProduct}">
     <label for="id">Id:</label><br>
@@ -16,6 +16,8 @@
     <input type="text" id="fname" name="fname" th:field="*{productName}"><br>
     <label for="lname">Description:</label><br>
     <input type="text" id="lname" name="lname" th:field="*{description}"><br><br>
+    <label for="lname">Price:</label><br>
+    <input type="text" id="price" name="price" th:field="*{price}"><br><br>
     <input type="submit" value="Edit product">
 </form>
 

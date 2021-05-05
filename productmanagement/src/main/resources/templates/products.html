@@ -25,12 +25,14 @@ th, td {
         <th>id</th>
         <th>Product</th>
         <th>Description</th>
+        <th>Price</th>
         <th>Action</th>
     </tr>
     <tr th:each="product: ${products}">
         <td th:text="${product.id}"></td>
         <td th:text="${product.productName}"></td>
         <td th:text="${product.description}"></td>
+        <td th:text="${product.price}"></td>
         <td>
             <a th:href="@{/deleteById(id=${product.id})}">X</a>
             <a th:href="@{/findById(id=${product.id})}">VIEW</a>

@@ -1,6 +1,9 @@
 package com.itschool.productmanagement.controller;
 
 import com.itschool.productmanagement.entities.ProductModel;
+import com.itschool.productmanagement.exception.ProductDescriptionException;
+import com.itschool.productmanagement.exception.ProductNameException;
+import com.itschool.productmanagement.exception.ProductPriceException;
 import com.itschool.productmanagement.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,10 +50,24 @@ public class ProductController {
 
 
     @GetMapping(path = "product-add")
-    public String addProduct(@ModelAttribute ProductModel newProduct) {
+    public String addProduct(@ModelAttribute ProductModel newProduct,Model model) {
         System.out.println("Add product ->" + newProduct.getProductName() + " " + newProduct.getDescription());
-        productService.addProduct(newProduct);
-        return "redirect:/product";
+        try {
+            productService.addProduct(newProduct);
+            return "redirect:/product";
+        }catch (ProductNameException productNameException) {
+            model.addAttribute("newProduct", newProduct);
+            model.addAttribute("errorMessage", productNameException.getMessage());
+            return "product-add";
+        }catch (ProductDescriptionException productDescriptionException) {
+            model.addAttribute("newProduct", newProduct);
+            model.addAttribute("errorMessage", productDescriptionException.getMessage());
+            return "product-add";
+        }catch (ProductPriceException productPriceException) {
+            model.addAttribute("newProduct", newProduct);
+            model.addAttribute("errorMessage", productPriceException.getMessage());
+            return "product-add";
+        }
     }
 
     @GetMapping(path = "deleteById")

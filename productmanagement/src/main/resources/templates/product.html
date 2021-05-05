@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:each="product $(products}">
-    <p th:text="${product.id} + ' ' + ${product.productName} + ' ' + ${product.productDescription}"></p>
+    <p th:text="${product.id} + ' ' + ${product.productName} + ' ' + ${product.description} + ' ' + ${product.price}"></p>
 </div>
 </body>
 </html>
