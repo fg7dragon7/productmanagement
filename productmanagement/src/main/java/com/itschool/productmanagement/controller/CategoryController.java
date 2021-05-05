@@ -2,7 +2,6 @@ package com.itschool.productmanagement.controller;
 
 import com.itschool.productmanagement.entities.CategoryModel;
 import com.itschool.productmanagement.entities.ProductModel;
-import com.itschool.productmanagement.exception.CategoryNameException;
 import com.itschool.productmanagement.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +21,7 @@ public class CategoryController {
     @GetMapping(path = "category")
     public String displayCategories(Model model){
         List<CategoryModel> categoryModelList = categoryService.displayCategories();
+        model.addAttribute("name", "Afisare category");
         model.addAttribute("categories", categoryModelList);
         return "categories";
     }
@@ -34,7 +34,7 @@ public class CategoryController {
 
     @GetMapping(path = "category-add")
     public String addCategory(@ModelAttribute CategoryModel newCategory){
-        System.out.println("Add Category ->" + newCategory.getId() + " " + newCategory.getCategory());
+        System.out.println("Add Category ->" + newCategory.getId() + " " + newCategory.getName());
            categoryService.addCategory(newCategory);
            return "redirect:/categories";
         }
@@ -67,4 +67,5 @@ public class CategoryController {
         model.addAttribute("foundCategory", categoryModel);
         return "view-category";
     }
+
 }

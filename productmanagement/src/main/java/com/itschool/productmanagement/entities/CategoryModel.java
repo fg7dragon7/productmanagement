@@ -10,10 +10,10 @@ public class CategoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
 
-    @OneToMany
-    private List<ProductModel> productModel;
-    private String category;
+    @ManyToMany(mappedBy = "categories")
+    private List<ProductModel> products;
 
     public int getId() {
         return id;
@@ -23,20 +23,20 @@ public class CategoryModel {
         this.id = id;
     }
 
-    public List<ProductModel> getProductModel() {
-        return productModel;
+    public List<ProductModel> getProducts() {
+        return products;
     }
 
-    public void setProductModel(List<ProductModel> productModel) {
-        this.productModel = productModel;
+    public void setProducts(List<ProductModel> products) {
+        this.products = products;
     }
 
-    public String getCategory() {
-        return category;
+    public String getName() {
+        return name;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setName(String name) {
+        this.name = name;
     }
 
 

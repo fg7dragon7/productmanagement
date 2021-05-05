@@ -10,10 +10,10 @@
 <form th:action="@{/category-add}" th:object="${newCategory}">
     <label for="id">Id:</label><br>
     <input type="text" id="id" name="id" th:field="*{id}"><br>
-    <label for="productModel">Description:</label><br>
-    <input type="text" id="productModel" name="productModel" th:field="*{productModel}"><br><br>
-    <label for="category">Price:</label><br>
-    <input type="text" id="category" name="category" th:field="*{category}"><br><br>
+    <label for="products">Description:</label><br>
+    <input type="text" id="products" name="products" th:field="*{products}"><br><br>
+    <label for="name">Price:</label><br>
+    <input type="text" id="name" name="name" th:field="*{name}"><br><br>
     <input type="submit" value="Add category">
 </form>
 
