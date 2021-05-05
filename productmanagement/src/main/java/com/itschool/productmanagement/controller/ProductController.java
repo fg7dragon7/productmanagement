@@ -51,7 +51,8 @@ public class ProductController {
 
     @GetMapping(path = "product-add")
     public String addProduct(@ModelAttribute ProductModel newProduct,Model model) {
-        System.out.println("Add product ->" + newProduct.getProductName() + " " + newProduct.getDescription());
+        System.out.println("Add product ->" + newProduct.getProductName() + " " + newProduct.getDescription() +
+                " " + newProduct.getPrice());
         try {
             productService.addProduct(newProduct);
             return "redirect:/product";
