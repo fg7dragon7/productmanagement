@@ -1,6 +1,7 @@
 package com.itschool.productmanagement.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -10,6 +11,8 @@ public class CategoryModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @OneToMany
+    private List<ProductModel> productModelList;
     private String category;
 
     public int getId() {
@@ -18,6 +21,14 @@ public class CategoryModel {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<ProductModel> getProductModelList() {
+        return productModelList;
+    }
+
+    public void setProductModelList(List<ProductModel> productModelList) {
+        this.productModelList = productModelList;
     }
 
     public String getCategory() {
