@@ -31,8 +31,8 @@ th, td {
         <td th:text="${category.id}"></td>
         <td th:text="${category.description}"></td>
         <td>
-            <a th:href="@{/deleteByIdCategory(id=${category.id})}">X</a>
-            <a th:href="@{/findByIdCategory(id=${category.id})}">View</a>
+            <a th:href="@{/deleteCategoryById(id=${category.id})}">X</a>
+            <a th:href="@{/findCategoryById(id=${category.id})}">View</a>
             <a th:href="@{/edit-category(id=${category.id})}">EDIT</a>
         </td>
     </tr>

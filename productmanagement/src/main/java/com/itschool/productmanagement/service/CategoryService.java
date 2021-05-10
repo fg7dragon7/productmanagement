@@ -35,7 +35,7 @@ public class CategoryService {
         categoryRepository.deleteById(id);
     }
 
-    public CategoryModel findById(int id) {
+    public CategoryModel findCategoryById(int id) {
         Optional<CategoryModel> optionalCategoryModel = categoryRepository.findById(id);
         return optionalCategoryModel.get();
     }

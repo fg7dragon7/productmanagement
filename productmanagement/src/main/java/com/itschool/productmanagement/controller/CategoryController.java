@@ -40,7 +40,7 @@ public class CategoryController {
 
     @GetMapping(path = "edit-category")
     public String viewCategoryPage(@RequestParam int id, Model model) {
-        CategoryModel foundCategory =  categoryService.findById(id);
+        CategoryModel foundCategory =  categoryService.findCategoryById(id);
         model.addAttribute("editCategory", foundCategory);
         return "category-edit";
     }
@@ -52,17 +52,17 @@ public class CategoryController {
         return  "redirect:/category";
     }
 
-    @GetMapping(path = "deleteById")
+    @GetMapping(path = "deleteCategoryById")
     public String deleteById(@RequestParam("id") int id) {
         System.out.println("Deleting category with id:" + id);
         categoryService.deleteCategory(id);
         return "redirect:/category";
     }
 
-    @GetMapping(path = "findById")
+    @GetMapping(path = "findCategoryById")
     public String findById(@RequestParam("id") int id, Model model) {
         System.out.println("Searching for category: id:" + id);
-        CategoryModel categoryModel = categoryService.findById(id);
+        CategoryModel categoryModel = categoryService.findCategoryById(id);
         model.addAttribute("foundCategory", categoryModel);
         return "view-category";
     }
