@@ -15,10 +15,29 @@ th, td {
 </style>
 </head>
 <body>
-<a th:href="@{/add-category}">Add Category</a>
-<ul th:each="category: ${categories}"></ul>
-<a th:href="@{/deleteByIdCategory(id=${category.id})}">X</a>
-<a th:href="@{/findByIdCategory(id=${category.id})}">View</a>
+
+<p th:text="${title}"></p>
+
+<a type="button" th:href="@{/add-category}">Add Category</a>
+
+<table style="width:100%">
+    <tr>
+        <th>id</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="category: ${categories}">
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.description}"></td>
+        <td>
+            <a th:href="@{/deleteByIdCategory(id=${category.id})}">X</a>
+            <a th:href="@{/findByIdCategory(id=${category.id})}">View</a>
+            <a th:href="@{/edit-category(id=${category.id})}">EDIT</a>
+        </td>
+    </tr>
 </ul>
+
+</table>
 </body>
 </html>

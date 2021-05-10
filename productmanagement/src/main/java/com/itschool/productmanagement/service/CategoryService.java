@@ -1,10 +1,8 @@
 package com.itschool.productmanagement.service;
 
 import com.itschool.productmanagement.entities.CategoryModel;
-import com.itschool.productmanagement.entities.ProductModel;
 import com.itschool.productmanagement.exception.CategoryNameException;
 import com.itschool.productmanagement.repository.CategoryRepository;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +23,7 @@ public class CategoryService {
 
     public void addCategory(CategoryModel categoryModel) {
 
-        if (categoryModel.getName().length() <= 3) {
+        if (categoryModel.getCategory().length() <= 3) {
             RuntimeException exception = new CategoryNameException("Numele Categoriei este prea scurt");
             throw exception;
         } else {
@@ -46,12 +44,6 @@ public class CategoryService {
         categoryRepository.save(editedCategory);
     }
 
-    public void displayProductsFromCategory(int id) {
-        Optional<CategoryModel> optionalCategoryModel = categoryRepository.findById(id);
-        List<ProductModel> productModels = optionalCategoryModel.get().getProducts();
-        for (ProductModel productModel : productModels) {
-            System.out.println(productModel.getId() + " " + productModel.getProductName());
-        }
-    }
+
 
 }

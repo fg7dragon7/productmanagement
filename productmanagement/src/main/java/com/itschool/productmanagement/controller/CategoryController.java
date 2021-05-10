@@ -1,7 +1,6 @@
 package com.itschool.productmanagement.controller;
 
 import com.itschool.productmanagement.entities.CategoryModel;
-import com.itschool.productmanagement.entities.ProductModel;
 import com.itschool.productmanagement.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +33,7 @@ public class CategoryController {
 
     @GetMapping(path = "category-add")
     public String addCategory(@ModelAttribute CategoryModel newCategory){
-        System.out.println("Add Category ->" + newCategory.getId() + " " + newCategory.getName());
+        System.out.println("Add Category ->" + newCategory.getId() + " " + newCategory.getCategory());
            categoryService.addCategory(newCategory);
            return "redirect:/categories";
         }

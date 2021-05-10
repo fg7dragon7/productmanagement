@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Category</title>
+</head>
+<body>
+<h2>Edit Category</h2>
+
+<form th:action="@{/category-edit}" th:object="${editCategory}">
+  <label for="id">Id:</label><br>
+  <input type="text" id="id" readonly name="id" th:field="*{id}"><br>
+  <label for="lname">Description:</label><br>
+  <input type="text" id="lname" name="lname" th:field="*{description}"><br><br>
+  <input type="submit" value="Edit Category">
+</form>
+
+
+</body>
+</html>

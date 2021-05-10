@@ -10,7 +10,7 @@ public class CategoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String category;
 
     @ManyToMany(mappedBy = "categories")
     private List<ProductModel> products;
@@ -31,12 +31,12 @@ public class CategoryModel {
         this.products = products;
     }
 
-    public String getName() {
-        return name;
+    public String getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
 
