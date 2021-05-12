@@ -19,6 +19,15 @@
     <label for="lname">Price:</label><br>
     <input type="text" id="price" name="price" th:field="*{price}"><br><br>
     <p th:text="${errorMessageProductPrice}"></p>
+
+    <label for="cars">Category:</label><br>
+    <div>
+        <select name="cars" id="cars" th:field="*{category.id}">
+            <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.categoryName}"></option>
+        </select>
+    </div>
+
+
     <input type="submit" value="Add product">
 </form>
 

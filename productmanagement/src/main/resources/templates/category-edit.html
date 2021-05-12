@@ -10,8 +10,8 @@
 <form th:action="@{/category-edit}" th:object="${editCategory}">
   <label for="id">Id:</label><br>
   <input type="text" id="id" readonly name="id" th:field="*{id}"><br>
-  <label for="lname">Description:</label><br>
-  <input type="text" id="lname" name="lname" th:field="*{description}"><br><br>
+  <label for="lname">Category:</label><br>
+  <input type="text" id="lname" name="lname" th:field="*{categoryName}"><br><br>
   <input type="submit" value="Edit Category">
 </form>
 

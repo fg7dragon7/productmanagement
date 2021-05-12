@@ -33,7 +33,7 @@ public class CategoryController {
 
     @GetMapping(path = "category-add")
     public String addCategory(@ModelAttribute CategoryModel newCategory){
-        System.out.println("Add Category ->" + newCategory.getId() + " " + newCategory.getCategory());
+        System.out.println("Add Category ->" + newCategory.getId() + " " + newCategory.getCategoryName());
            categoryService.addCategory(newCategory);
            return "redirect:/categories";
         }

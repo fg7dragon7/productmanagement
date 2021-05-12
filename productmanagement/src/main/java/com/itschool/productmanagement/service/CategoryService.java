@@ -23,7 +23,7 @@ public class CategoryService {
 
     public void addCategory(CategoryModel categoryModel) {
 
-        if (categoryModel.getCategory().length() <= 3) {
+        if (categoryModel.getCategoryName().length() <= 3) {
             RuntimeException exception = new CategoryNameException("Numele Categoriei este prea scurt");
             throw exception;
         } else {

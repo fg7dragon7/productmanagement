@@ -23,6 +23,7 @@
 <h3 th:text="${foundProduct.productName}"></h3>
 <h3 th:text="${foundProduct.description}"></h3>
 <h3 th:text="${foundProduct.price}"></h3>
+<td th:if="${product.category != null}" th:text="${product.category.categoryName}" ></td>
 
 </body>
 </html>

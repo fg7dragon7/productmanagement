@@ -16,6 +16,9 @@ public class ProductModel {
 
     private int price;
 
+    @ManyToOne
+    private CategoryModel category;
+
     public int getId() {
         return id;
     }
@@ -46,5 +49,13 @@ public class ProductModel {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public CategoryModel getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryModel category) {
+        this.category = category;
     }
 }

@@ -29,7 +29,7 @@ th, td {
 
     <tr th:each="category: ${categories}">
         <td th:text="${category.id}"></td>
-        <td th:text="${category.description}"></td>
+        <td th:text="@{category.categoryName}"></td>
         <td>
             <a th:href="@{/deleteCategoryById(id=${category.id})}">X</a>
             <a th:href="@{/findCategoryById(id=${category.id})}">View</a>
